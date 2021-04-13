@@ -3,6 +3,6 @@
 ## Building
 To compile use the following commands.
 ```console
-$ qmake Sesion2_2.pro
+$ qmake-qt5 Sesion2_2.pro
 $ make -j
 ```
