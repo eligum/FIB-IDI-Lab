@@ -273,7 +273,20 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event)
     makeCurrent();
     switch (event->key()) {
         case Qt::Key_R: {
+            break;
+        }
+        case Qt::Key_1: {
             yaw = pitch = roll = 0.0f;
+            break;
+        }
+        case Qt::Key_2: {
+            yaw = roll = 0.0f;
+            pitch = glm::radians(90.0f);
+            break;
+        }
+        case Qt::Key_3: {
+            pitch = roll = 0.0f;
+            yaw = glm::radians(90.0f);
             break;
         }
         case Qt::Key_O: {
