@@ -6,8 +6,8 @@ INCLUDEPATH += /usr/include/glm \
 
 FORMS       += MyForm.ui
 
-HEADERS     += MyForm.h \
+HEADERS     += MyForm.h MyLineEdit.h
 # MyGLWidget.h
 
-SOURCES     += main.cpp MyForm.cpp \
+SOURCES     += main.cpp MyForm.cpp MyLineEdit.cpp
 # MyGLWidget.cpp

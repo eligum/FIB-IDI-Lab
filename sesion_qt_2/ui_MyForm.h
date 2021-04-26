@@ -12,9 +12,9 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
+#include "MyLineEdit.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -22,7 +22,7 @@ class Ui_MyForm
 {
 public:
     QPushButton *pushButton;
-    QLineEdit *lineEdit;
+    MyLineEdit *lineEdit;
     QLabel *label;
     QLabel *label_2;
 
@@ -34,7 +34,7 @@ public:
         pushButton = new QPushButton(MyForm);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(230, 250, 89, 25));
-        lineEdit = new QLineEdit(MyForm);
+        lineEdit = new MyLineEdit(MyForm);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
         lineEdit->setGeometry(QRect(220, 150, 113, 25));
         label = new QLabel(MyForm);
@@ -45,6 +45,7 @@ public:
         label_2->setGeometry(QRect(130, 150, 67, 17));
 
         retranslateUi(MyForm);
+        QObject::connect(lineEdit, SIGNAL(returnPressed(QString)), label, SLOT(setText(QString)));
 
         QMetaObject::connectSlotsByName(MyForm);
     } // setupUi
