@@ -8,6 +8,13 @@ in vec3 matdiff;
 in vec3 matspec;
 in float matshin;
 
+out vec3 matamb_vo;
+out vec3 matdiff_vo;
+out vec3 matspec_vo;
+out float matshin_vo;
+
+out vec3 frag_pos;
+
 uniform mat4 proj;
 uniform mat4 view;
 uniform mat4 TG;
@@ -55,6 +62,12 @@ vec3 Phong (vec3 NormSCO, vec3 L, vec4 vertSCO)
 
 void main()
 {
+    matamb_vo = matamb;
+    matdiff_vo = matdiff;
+    matspec_vo = matspec;
+    matshin_vo = matshin;
+    frag_pos = 
+
     mat3 NormalMatrix = inverse(transpose(mat3(view * TG)));
     vec3 normalSCO = normalize(NormalMatrix * normal);
     vec4 L = normalize(view * vec4(posFocus, 1.0) - view * TG * vec4(vertex, 1.0));

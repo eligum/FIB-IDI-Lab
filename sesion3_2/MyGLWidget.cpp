@@ -69,11 +69,54 @@ void MyGLWidget::mouseMoveEvent(QMouseEvent *e)
 void MyGLWidget::keyPressEvent(QKeyEvent* event) {
     makeCurrent();
     switch (event->key()) {
-        /*case :
-      ...
-      break;
-  */
+        
         default: Bl3GLWidget::keyPressEvent(event); break;
     }
     update();
 }
+
+void MyGLWidget::InitLlum()
+{
+    colFocus    = glm::vec3{0.8, 0.8, 0.8};
+    llumAmbient = glm::vec3{0.2, 0.2, 0.2};
+    posFocus    = glm::vec3{1, 1, 1};
+}
+
+void MyGLWidget::UploadVec3(const char* u_name, const glm::vec3& vec)
+{
+    int location = glGetUniformLocation(this->program->programId(), u_name);
+    if (location < 0) {
+        std::cerr << "Uniform " << u_name << "not found." << std::endl;
+    } else {
+        glUniform3f(location, vec.x, vec.y, vec.z);
+    }
+}
+
+void MyGLWidget::UploadMat4(const char* u_name, const glm::mat4& mat)
+{
+    int location = glGetUniformLocation(this->program->programId(), u_name);
+    if (location < 0) {
+        std::cerr << "Uniform " << u_name << "not found." << std::endl;
+    } else {
+        glUniformMatrix4fv(location, 1, GL_FALSE, &mat[0][0]);
+    }
+}
+
+void MyGLWidget::UploadFloat(const char* u_name, float value)
+{
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
