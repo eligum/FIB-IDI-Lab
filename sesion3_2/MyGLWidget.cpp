@@ -22,7 +22,7 @@ int MyGLWidget::printOglError(const char file[], int line, const char func[])
         case 0x501:
             error = "GL_INVALID_VALUE";
             break;
-        case 0x502: 
+        case 0x502:
             error = "GL_INVALID_OPERATION";
             break;
         case 0x503:
@@ -40,7 +40,7 @@ int MyGLWidget::printOglError(const char file[], int line, const char func[])
     if (glErr != GL_NO_ERROR)
     {
         printf("glError in file %s @ line %d: %s function: %s\n",
-                             file, line, error, func);
+               file, line, error, func);
         retCode = 1;
     }
     return retCode;
@@ -51,29 +51,29 @@ MyGLWidget::~MyGLWidget() {
 
 void MyGLWidget::mouseMoveEvent(QMouseEvent *e)
 {
-  makeCurrent();
-  // Aqui cal que es calculi i s'apliqui la rotacio o el zoom com s'escaigui...
-  if (DoingInteractive == ROTATE)
-  {
-    // Fem la rotació
-    angleY += (e->x() - xClick) * M_PI / ample;
-    viewTransform ();
-  }
+    makeCurrent();
+    // Aqui cal que es calculi i s'apliqui la rotacio o el zoom com s'escaigui...
+    if (DoingInteractive == ROTATE)
+    {
+        // Fem la rotació
+        angleY += (e->x() - xClick) * M_PI / ample;
+        viewTransform ();
+    }
 
-  xClick = e->x();
-  yClick = e->y();
+    xClick = e->x();
+    yClick = e->y();
 
-  update ();
+    update ();
 }
 
 void MyGLWidget::keyPressEvent(QKeyEvent* event) {
-  makeCurrent();
-  switch (event->key()) {
-  /*case : 
+    makeCurrent();
+    switch (event->key()) {
+        /*case :
       ...
       break;
-  */  
-    default: Bl3GLWidget::keyPressEvent(event); break;
-  }
-  update();
+  */
+        default: Bl3GLWidget::keyPressEvent(event); break;
+    }
+    update();
 }

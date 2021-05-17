@@ -2,11 +2,11 @@
 
 class MyForm : public QWidget
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
     MyForm (QWidget *parent=0);
-  
-  private:
+
+private:
     Ui::MyForm ui;
 };

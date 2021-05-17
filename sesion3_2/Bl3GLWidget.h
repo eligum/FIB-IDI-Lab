@@ -12,13 +12,13 @@
 
 class Bl3GLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core 
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
     Bl3GLWidget (QWidget *parent=0);
     ~Bl3GLWidget ();
 
-  protected:
+protected:
     // initializeGL - Aqui incluim les inicialitzacions del contexte grafic.
     virtual void initializeGL ( );
     // paintGL - Mètode cridat cada cop que cal refrescar la finestra.
@@ -28,7 +28,7 @@ class Bl3GLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
     virtual void resizeGL (int width, int height);
     // keyPressEvent - Es cridat quan es prem una tecla
     virtual void keyPressEvent (QKeyEvent *event);
-    // mouse{Press/Release/Move}Event - Són cridades quan es realitza l'event 
+    // mouse{Press/Release/Move}Event - Són cridades quan es realitza l'event
     // corresponent de ratolí
     virtual void mousePressEvent (QMouseEvent *event);
     virtual void mouseReleaseEvent (QMouseEvent *event);
@@ -60,7 +60,7 @@ class Bl3GLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
     // Matriu de posició i orientació
     glm::mat4 View;
     // Matriu de transformació del model
-    glm::mat4 TG;  
+    glm::mat4 TG;
 
     // model
     Model patr;
@@ -74,7 +74,7 @@ class Bl3GLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
     glm::vec3 amb, diff, spec;
     float shin;
 
-	typedef  enum {NONE, ROTATE} InteractiveAction;
+    typedef  enum {NONE, ROTATE} InteractiveAction;
     InteractiveAction DoingInteractive;
     int xClick, yClick;
     float angleY;
